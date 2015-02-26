@@ -1,7 +1,9 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=5117
 
-A Vim plugin for looking up meaning of words inside Vim using StarDict Command-Line Version (SDCV) dictionary program.
+**Note**: More information & screenshots available at http://phongvcao.github.io/vim-stardict/
+
+A Vim plugin for looking up meaning of words inside Vim and Bash using StarDict Command-Line Version (SDCV) dictionary program.
 
 In addition to opening a Vim split and populating it with the output of StarDict Command-Line Version (SDCV), vim-stardict takes advantage of Vim syntax highlighting and some basic regexes to present the words' definitions to the users in an organized and user-friendly way.
 
-The plugin was inspired and originally a fork of chusiang/vim-sdcv <https://github.com/chusiang/vim-sdcv&gt;.
+The plugin was inspired and originally a fork of chusiang/vim-sdcv: https://github.com/chusiang/vim-sdcv

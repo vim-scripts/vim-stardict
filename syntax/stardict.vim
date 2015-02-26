@@ -31,14 +31,14 @@ endif
 let b:current_syntax = "stardict"
 
 syntax match stardictResult "\v^[A-Z].*"
-syntax match stardictWord "\v^[a-z][^/]*"
+syntax match stardictWord "\v^\@.*"
 syntax match stardictWordType "\v^\*.*"
 syntax match stardictWordMeaning "\v^[0-9].*"
-syntax match stardictWordExample "\v^(\t\-\s.*\:|\!.*)"
-syntax match stardictDictName "\v^\@.*"
+syntax match stardictWordExample "\v^(    \-\s.*\:|\!.*)"
+syntax match stardictDictName "\v^\@[^/]*\:[^/]*"
 
-highlight link stardictResult PreProc
-highlight link stardictWord Error
+highlight link stardictResult Special
+highlight link stardictWord PreProc
 highlight link stardictWordType Statement
 highlight link stardictWordMeaning Identifier
 highlight link stardictWordExample Type

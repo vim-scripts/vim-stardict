@@ -36,12 +36,14 @@ if !exists('g:stardict_split_horizontal')
     let g:stardict_split_horizontal = 1
 endif
 
-" TODO: stardict automatically searched all possible directories for stardict.vim to
-" source from
+if !exists('g:stardict_prefer_python3')
+    let g:stardict_prefer_python3 = 1
+endif
+
 augroup StarDictFileTypeDetect
-    autocmd! Syntax stardict call stardict#SourceSyntaxFile()
+    autocmd! Syntax call stardict#SourceSyntaxFile()
 augroup END
 
-" Map vimstardict#StarDict command to StarDict() function
+" Map :StarDict command to stardict#StarDict() function
 command! -nargs=* StarDict call stardict#StarDict(<f-args>)
 command! -nargs=* StarDictCursor call stardict#StarDict(expand('<cword>'))
