@@ -23,7 +23,7 @@ CONTENTS                                               *vim-stardict-contents*
 *1.INTRODUCTION*                                     *vim-stardict-introduction*
 
 *vim-stardict* is a Vim plugin that helps users lookup for meaning of words right
-inside Vim through *StarDict* *Command-Line* *Version* |SDCV|
+inside Vim and through *StarDict* *Command-Line* *Version* |SDCV|
 (http://sdcv.sourceforge.net/) - the console version of the popular |StarDict|
 program (http://www.stardict.org/).
 
@@ -119,6 +119,17 @@ You can tweak the behavior of vim-stardict by setting a few variables in your
 	let g:stardict_split_horizontal = 1
     let g:stardict_prefer_python3 = 0
 
+    " OPTIONAL: You can change the colors of output of vim-stardict inside Vim
+	" as follow (see below for the comprehensive list of highlight group):
+	highlight link stardictResult Special              " Default value
+	highlight link stardictWord PreProc                " Default value
+	highlight link stardictWordType Statement          " Default value
+	highlight link stardictWordMeaning Identifier      " Default value
+	highlight link stardictWordExample Type            " Default value
+	highlight link stardictDictName Underlined         " Default value
+
+For the full list of highlight groups in Vim, you can consult ':help group-name'
+
 ------------------------------------------------------------------------------
 *4.1.1* *g:stardict_split_size*                              *stardict_split_size*
 
@@ -162,7 +173,7 @@ Default: 1
 *4.2* *Bash-Configuration*                                   *bash-configuration*
 
 In order to use this plugin for Bash also, you need to configure your |.bashrc|
-similar to the following:
+similar to the following (supposed you use |Vundle| to manage your plugins):
 
     # Source the stardict.sh file in the vim-stardict installation directory
 	if [[ -f ${HOME}/.vim/bundle/vim-stardict/bash/stardict.sh ]]; then
@@ -173,6 +184,18 @@ similar to the following:
 	# you can alias it to something else
 	alias whatis="stardict"
     alias whatvim="vstardict"
+
+	# OPTIONAL: You can change the colors of output of vim-stardict inside Bash
+	# (see below for the comprehensive list of color codes in Bash):
+	export STARDICT_RESULT="\033[0;31m"            # Defaut value
+	export STARDICT_WORD="\033[0;91m"              # Defaut value
+	export STARDICT_WORD_TYPE="\033[0;32m"         # Defaut value
+	export STARDICT_WORD_MEANING="\033[0;34m"      # Defaut value
+	export STARDICT_WORD_EXAMPLE="\033[0;33m"      # Defaut value
+	export STARDICT_DICT_NAME="\033[0;95m"         # Defaut value
+
+For the full list of color codes in Bash, you can consult this link:
+    http://vimdoc.sourceforge.net/htmldoc/syntax.html#group-name
 
 You can change 'whatis' and 'whatvim' to whatever aliases you like. Also, you
 can also change the path to source the |stardict.sh| file above, if your Vim
@@ -192,14 +215,15 @@ To save some keystrokes, instead of typing in the many vim-stardict commands
 directly, you can map them into Vim keymappings:
 
 	nnoremap <leader>sw :StarDict<Space>    	" Ready for typing the word in
-	nnoremap <leader>sc :StarDictCursor<CR>     " Lookup the word under the cursor
+	nnoremap <leader>sc :StarDictCursor<CR>     " Lookup the word under cursor
 
 
 ==============================================================================
 *6.LICENSE*                                               *vim-stardict-license*
 
 Version: 0.1.0
-Author : Phong V. Cao <phongvcao@phongvcao.com> Documentation Author: Phong V. Cao <phongvcao@phongvcao.com>
+Author : Phong V. Cao <phongvcao@phongvcao.com>
+Documentation Author: Phong V. Cao <phongvcao@phongvcao.com>
 License: MIT license  {{{
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -258,6 +282,10 @@ request:
 
 ==============================================================================
 *10.Changelog*                                          *vim-stardict-changelog*
+
+|v0.3.0|
+    * Added output colors customization for Vim and Bash
+    * Fixed extra split in Vim
 
 |v0.2.0|
     * Added support for Bash

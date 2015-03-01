@@ -1,6 +1,6 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=5117
 
-**Note**: More information & screenshots available at http://phongvcao.github.io/vim-stardict/
+**Note**: More information & screenshots available at https://github.com/phongvcao/vim-stardict
 
 A Vim plugin for looking up meaning of words inside Vim and Bash using StarDict Command-Line Version (SDCV) dictionary program.
 

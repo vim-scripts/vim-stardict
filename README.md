@@ -1,7 +1,10 @@
 # vim-stardict
 
-A Vim plugin for looking up meaning of words inside Vim using the **StarDict
-Command-Line Version (SDCV)** dictionary program.
+Project maintained by <a href="http://phongvcao.com/" target="_blank">Phong V.
+Cao</a>
+
+A Vim plugin for looking up meaning of words inside Vim and Bash using the
+**StarDict Command-Line Version (SDCV)** dictionary program.
 
 In addition to opening a Vim split and populating it with the output of StarDict
 Command-Line Version (SDCV), **vim-stardict** takes advantage of Vim syntax
@@ -99,6 +102,8 @@ To view the meaning of word in Vim from Bash:
 	vstardict first_word second_word "third word" 'fourth word'
 
 
+
+
 Configuration
 =============
 
@@ -119,8 +124,20 @@ Sample configuration for your `.vimrc` (more in the official documentation)
 
     " Map vim-stardict's commands
     nnoremap <leader>sw :StarDict<Space>	    " Ready for typing the word in
-	nnoremap <leader>sc :StarDictCursor<CR>     " Lookup the word under the cursor
+	nnoremap <leader>sc :StarDictCursor<CR>     " Lookup the word under cursor
+
+	" OPTIONAL: You can change the colors of output of vim-stardict inside Vim
+	" as follow (see below for the comprehensive list of highlight group):
+	highlight link stardictResult Special              " Default value
+	highlight link stardictWord PreProc                " Default value
+	highlight link stardictWordType Statement          " Default value
+	highlight link stardictWordMeaning Identifier      " Default value
+	highlight link stardictWordExample Type            " Default value
+	highlight link stardictDictName Underlined         " Default value
 ```
+
+**For the full list of highlight groups in Vim**, you can consult [:help group-name][5]
+
 
 ## 2. Bash:
 Sample configuration for your `.bashrc` (supposed you use [Vundle][3] to manage
@@ -136,7 +153,18 @@ your plugins):
 	# you can alias it to something else
 	alias whatis="stardict"
 	alias whatvim="vstardict"
+
+	# OPTIONAL: You can change the colors of output of vim-stardict inside Bash
+	# (see below for the comprehensive list of color codes in Bash):
+	export STARDICT_RESULT="\033[0;31m"            # Defaut value
+	export STARDICT_WORD="\033[0;91m"              # Defaut value
+	export STARDICT_WORD_TYPE="\033[0;32m"         # Defaut value
+	export STARDICT_WORD_MEANING="\033[0;34m"      # Defaut value
+	export STARDICT_WORD_EXAMPLE="\033[0;33m"      # Defaut value
+	export STARDICT_DICT_NAME="\033[0;95m"         # Defaut value
 ```
+
+**For the full list of color codes in Bash**, you can consult [this link][4]
 
 You can change **whatis** and **whatvim** above to whatever aliases you like.
 Also, you can change the path to source the **stardict.sh** file above, if your
@@ -149,6 +177,18 @@ words:
 	whatvim first_word second_word "third word" 'fourth word'
 
 
+Documentation
+=============
+* See [:help vim-stardict](https://github.com/phongvcao/vim-stardict/blob/master/doc/vim-stardict.txt) VimDoc for more information.
+
+
+Contributors
+============
+* See [vim-stardict contributors](https://github.com/phongvcao/vim-stardict/graphs/contributors)
+
+*Thank you to you all!*
+
+
 Credits
 =======
 
@@ -159,4 +199,15 @@ the original idea from.
 [1]: https://github.com/tpope/vim-pathogen
 [2]: https://github.com/Shougo/neobundle.vim
 [3]: https://github.com/gmarik/vundle
+[4]: https://wiki.archlinux.org/index.php/Color_Bash_Prompt#List_of_colors_for_prompt_and_Bash
+[5]: http://vimdoc.sourceforge.net/htmldoc/syntax.html#group-name
 
+Todo
+====
+**vim-stardict** is currently under heavy development. Your contributions and
+patches are highly appreciated.
+
+* Add support for Windows
+* Implement word lookup in Visual Mode (look up the selected text)
+* Once opened under :StarDictCursor mode, whenever the mouse move to a new word,
+vim-stardict automatically looks up for that word (let g:stardict_lookup_on_mousemove)
