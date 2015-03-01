@@ -102,8 +102,6 @@ To view the meaning of word in Vim from Bash:
 	vstardict first_word second_word "third word" 'fourth word'
 
 
-
-
 Configuration
 =============
 
@@ -114,26 +112,30 @@ Sample configuration for your `.vimrc` (more in the official documentation)
     " Make vim-stardict split open in a :split (default value)
     let g:stardict_split_horizontal = 1
 
-    " Set vim-stardict split width (or height) to 20 based on
-    " whether vim-stardict split is a :vsplit (or :split)
+    " Set vim-stardict split width (or height) to 20 based on whether
+    " vim-stardict split is a :vsplit (or :split)
 	let g:stardict_split_size = 20
 
-	" This option should only be set if your Vim is compiled with +python and
-	" -python3 options (in other words, if your Vim doesn't support Python 3)
+	" This option should only be set if your Vim is compiled with +python
+	" and -python3 options (in other words, if your Vim doesn't support
+	" Python 3):
 	" let g:stardict_prefer_python3 = 0
 
-    " Map vim-stardict's commands
-    nnoremap <leader>sw :StarDict<Space>	    " Ready for typing the word in
-	nnoremap <leader>sc :StarDictCursor<CR>     " Lookup the word under cursor
+	" Map vim-stardict's commands
+	" Ready for typing the word in
+    nnoremap <leader>sw :StarDict<Space>
+	" Lookup the word under cursor
+	nnoremap <leader>sc :StarDictCursor<CR>
 
-	" OPTIONAL: You can change the colors of output of vim-stardict inside Vim
-	" as follow (see below for the comprehensive list of highlight group):
-	highlight link stardictResult Special              " Default value
-	highlight link stardictWord PreProc                " Default value
-	highlight link stardictWordType Statement          " Default value
-	highlight link stardictWordMeaning Identifier      " Default value
-	highlight link stardictWordExample Type            " Default value
-	highlight link stardictDictName Underlined         " Default value
+	" OPTIONAL: You can change the colors of output of vim-stardict inside
+	" Vim as follow (see below for the comprehensive list of highlight
+	" group):
+	" highlight link stardictResult Special              " Default value
+	" highlight link stardictWord PreProc                " Default value
+	" highlight link stardictWordType Statement          " Default value
+	" highlight link stardictWordMeaning Identifier      " Default value
+	" highlight link stardictWordExample Type            " Default value
+	" highlight link stardictDictName Underlined         " Default value
 ```
 
 **For the full list of highlight groups in Vim**, you can consult [:help group-name][5]
@@ -144,24 +146,25 @@ Sample configuration for your `.bashrc` (supposed you use [Vundle][3] to manage
 your plugins):
 
 ```bash
-	# Source the stardict.sh file in the vim-stardict installation directory
+	# Source the stardict.sh file in the vim-stardict installation
+	# directory
 	if [[ -f ${HOME}/.vim/bundle/vim-stardict/bash/stardict.sh ]]; then
 		source ${HOME}/.vim/bundle/vim-stardict/bash/stardict.sh
 	fi
 
-	# To avoid typing the long & daunting 'stardict' & 'vstardict' commands,
-	# you can alias it to something else
+	# To avoid typing the long & daunting 'stardict' & 'vstardict'
+	# commands, you can alias it to something else
 	alias whatis="stardict"
 	alias whatvim="vstardict"
 
-	# OPTIONAL: You can change the colors of output of vim-stardict inside Bash
-	# (see below for the comprehensive list of color codes in Bash):
-	export STARDICT_RESULT="\033[0;31m"            # Defaut value
-	export STARDICT_WORD="\033[0;91m"              # Defaut value
-	export STARDICT_WORD_TYPE="\033[0;32m"         # Defaut value
-	export STARDICT_WORD_MEANING="\033[0;34m"      # Defaut value
-	export STARDICT_WORD_EXAMPLE="\033[0;33m"      # Defaut value
-	export STARDICT_DICT_NAME="\033[0;95m"         # Defaut value
+	# OPTIONAL: You can change the colors of output of vim-stardict inside
+	# Bash (see below for the comprehensive list of color codes in Bash):
+	# export STARDICT_RESULT="\033[0;31m"            # Defaut value
+	# export STARDICT_WORD="\033[0;91m"              # Defaut value
+	# export STARDICT_WORD_TYPE="\033[0;32m"         # Defaut value
+	# export STARDICT_WORD_MEANING="\033[0;34m"      # Defaut value
+	# export STARDICT_WORD_EXAMPLE="\033[0;33m"      # Defaut value
+	# export STARDICT_DICT_NAME="\033[0;95m"         # Defaut value
 ```
 
 **For the full list of color codes in Bash**, you can consult [this link][4]
@@ -187,6 +190,12 @@ Contributors
 * See [vim-stardict contributors](https://github.com/phongvcao/vim-stardict/graphs/contributors)
 
 *Thank you to you all!*
+
+
+Report Bugs
+===========
+* If you find a bug please do not hesitate to post it (along with a screenshot
+of the bug, if applicable) on our [Github issue tracker](https://github.com/phongvcao/vim-stardict/issues/new).
 
 
 Credits
