@@ -3,7 +3,7 @@
 Project maintained by <a href="http://phongvcao.com/" target="_blank">Phong V.
 Cao</a>
 
-A Vim plugin for looking up meaning of words inside Vim and Bash using the
+A Vim plugin for looking up meaning of words inside Vim, Bash and Zsh using the
 **StarDict Command-Line Version (SDCV)** dictionary program.
 
 In addition to opening a Vim split and populating it with the output of StarDict
@@ -97,7 +97,7 @@ spaces-in-between):
 	stardict first_word second_word "third word" 'fourth word'
 	stardict "first word" 'second word'
 
-To view the meaning of word in Vim from Bash:
+To view the meaning of word in Vim from Bash or Zsh:
 
 	vstardict first_word second_word "third word" 'fourth word'
 
@@ -141,15 +141,24 @@ Sample configuration for your `.vimrc` (more in the official documentation)
 **For the full list of highlight groups in Vim**, you can consult [:help group-name][5]
 
 
-## 2. Bash:
-Sample configuration for your `.bashrc` (supposed you use [Vundle][3] to manage
-your plugins):
+## 2. Bash and Zsh:
+Sample configuration for your `.bashrc` (`.zshrc` is similar - please consult
+the documentation) (supposed you use [Vundle][3] to manage your plugins):
 
 ```bash
-	# Source the stardict.sh file in the vim-stardict installation
-	# directory
-	if [[ -f ${HOME}/.vim/bundle/vim-stardict/bash/stardict.sh ]]; then
-		source ${HOME}/.vim/bundle/vim-stardict/bash/stardict.sh
+    # Export vim-stardict installation directory
+    # NOTE: Only do this if your vim-stardict installation directory is other
+    # than ${HOME}/.vim/bundle/vim-stardict. In other words, uncomment these
+    # lines if you are not using Vundle, Pathogen or NeoBundle to manage your
+    # Vim plugins:
+    export STARDICT_DIR="{HOME}/.vim/bundle/vim-stardict"
+
+	# For Bash: Source the stardict.sh file in the vim-stardict installation
+    # directory.
+    # For Zsh: The path to the stardict.zsh file is
+    # "${HOME}"/.vim/bundle/vim-stardict/bindings/zsh/stardict.zsh
+    if [[ -f "${HOME}"/.vim/bundle/vim-stardict/bindings/bash/stardict.sh ]]; then
+        source "${HOME}"/.vim/bundle/vim-stardict/bindings/bash/stardict.sh
 	fi
 
 	# To avoid typing the long & daunting 'stardict' & 'vstardict'
@@ -167,7 +176,7 @@ your plugins):
 	# export STARDICT_DICT_NAME="\033[0;95m"         # Defaut value
 ```
 
-**For the full list of color codes in Bash**, you can consult [this link][4]
+**For the full list of color codes in Bash and Zsh**, you can consult [this link][4]
 
 You can change **whatis** and **whatvim** above to whatever aliases you like.
 Also, you can change the path to source the **stardict.sh** file above, if your
