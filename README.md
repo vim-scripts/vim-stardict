@@ -163,12 +163,17 @@ the documentation) (supposed you use [Vundle][3] to manage your plugins):
 
 	# OPTIONAL: You can change the colors of output of vim-stardict inside
 	# Bash (see below for the comprehensive list of color codes in Bash):
-	# export STARDICT_RESULT="\033[0;31m"            # Defaut value
-	# export STARDICT_WORD="\033[0;91m"              # Defaut value
-	# export STARDICT_WORD_TYPE="\033[0;32m"         # Defaut value
-	# export STARDICT_WORD_MEANING="\033[0;34m"      # Defaut value
-	# export STARDICT_WORD_EXAMPLE="\033[0;33m"      # Defaut value
-	# export STARDICT_DICT_NAME="\033[0;95m"         # Defaut value
+	# export STARDICT_RESULT="\033[0;31m"                   # Defaut value
+	# export STARDICT_WORD="\033[0;91m"                     # Defaut value
+	# export STARDICT_WORD_TYPE="\033[0;32m"                # Defaut value
+	# export STARDICT_WORD_MEANING="\033[0;34m"             # Defaut value
+	# export STARDICT_WORD_EXAMPLE="\033[0;33m"             # Defaut value
+	# export STARDICT_DICT_NAME="\033[0;95m"                # Defaut value
+
+    # OPTIONAL: You can change the path to the python executable that
+    # vim-stardict uses for Bash/Zsh lookup (which is "/usr/bin/env python"
+    # by default)
+	# export STARDICT_PYTHON_PATH="/usr/bin/env python"     # Defaut value
 ```
 
 **For the full list of color codes in Bash and Zsh**, you can consult [this link][4]
@@ -191,7 +196,8 @@ Documentation
 
 Contributors
 ============
-* See [vim-stardict contributors](https://github.com/phongvcao/vim-stardict/graphs/contributors)
+* Please read [CONTRIBUTING.md](https://github.com/phongvcao/vim-stardict/blob/master/CONTRIBUTING.md) before making your Pull Requests
+* See [vim-stardict contributors](https://github.com/phongvcao/vim-stardict/graphs/contributors) for the list of contributors
 
 *Thank you to you all!*
 
