@@ -34,9 +34,7 @@ from subprocess import Popen, PIPE
 
 
 def main():
-    argsList = [[]]
-    argsList[0] += sys.argv[1:]
-    sys.stdout.write(getDefinition(argsList, caller="bash"))
+    sys.stdout.write(getDefinition([sys.argv[1:]], caller="bash"))
 
 
 def processArgsList(argsList):
@@ -77,8 +75,13 @@ def processArgsList(argsList):
 def getDefinition(argsListList, caller="vim"):
     argsListList[0].insert(0, "-n")
     argsListList[0].insert(0, "sdcv")
-    (definition, error) = Popen(processArgsList(argsListList[0]),
-            stdout=PIPE).communicate()
+
+    f = open("/home/phongvcao/vim-stardict-output.txt", "w")
+    f.write(str(argsListList))
+    f.close()
+
+    definition = Popen(" ".join(argsListList[0]), shell=True, stdout=PIPE)\
+            .stdout.read()
     encoding = locale.getdefaultlocale()[1]
     definition = formatStr(definition.decode(encoding))
 
